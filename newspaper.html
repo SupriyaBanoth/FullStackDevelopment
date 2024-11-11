@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newspaper Style Layout</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        header, .article {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-family: 'Cascadia Mono', monospace;
+            font-size: 48px;
+        }
+        h2 {
+            font-size: 32px;
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+        .article {
+            columns: 2;
+            column-gap: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i>DIN PATHRIKA</i></h1>
+            <p>“The paper that digs deeper.”</p>
+        </header>
+
+        <div class="article">
+            <h2>Breaking News: Coaching centre deaths, IAS aspirants tragically drowned</h2>
+            <p>Three civil services aspirants, Shreya Yadav, Tanya Soni, and Nevin Dalvin, were killed after flooding in the base of the Rau’s IAS Study Circle on July 27.</p>
+            <p>A Delhi court on Saturday sent all six accused in the case in which three IAS aspirants tragically drowned in Old Rajender Nagar last month to four days in the CBI.</p>
+        </div> 
+
+        <div class="article">
+            <h2>Tech Innovations: Artificial Intelligence Leading the Way</h2>
+            <p>Artificial Intelligence (AI) is rapidly transforming industries across the globe. From healthcare to finance, AI technologies are being integrated into various sectors to improve efficiency and productivity.</p>
+            <p>Experts believe that AI will continue to play a crucial role in the future.</p>
+        </div>
+
+        <p>AUTHOR: Supriya Banoth (23255A0519)</p>
+    </div>
+</body>
+</html>
