@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Rating System</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+          body {
+        background-color:rgb(156, 91, 145);
+        margin : 0px;
+        }
+        .stars {
+            display: inline-block;
+        }
+        .star {
+            font-size: 30px;
+            color: lightgray;
+            cursor: pointer;
+        }
+        .star.hover,
+        .star.selected {
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="stars">
+    <span class="star" data-value="1">&#9733;</span>
+    <span class="star" data-value="2">&#9733;</span>
+    <span class="star" data-value="3">&#9733;</span>
+    <span class="star" data-value="4">&#9733;</span>
+    <span class="star" data-value="5">&#9733;</span>
+</div>
+<div id="ratingMessage"></div>
+
+<script>
+    $(document).ready(function() {
+        let rating = 0;
+
+        // Hover effect
+        $('.star').on('mouseenter', function() {
+            const value = $(this).data('value');
+            highlightStars(value);
+        }).on('mouseleave', function() {
+            highlightStars(rating); // Reset to current rating on mouse leave
+        });
+
+        // Click event to select rating
+        $('.star').on('click', function() {
+            rating = $(this).data('value');
+            highlightStars(rating);
+            $('#ratingMessage').text("You rated this " + rating + " stars.");
+        });
+
+        // Function to highlight stars up to a given value
+        function highlightStars(value) {
+            $('.star').each(function() {
+                const starValue = $(this).data('value');
+                if (starValue <= value) {
+                    $(this).addClass('selected');
+                } else {
+                    $(this).removeClass('selected');
+                }
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

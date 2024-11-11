@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Table</h1>
+    
+    <button id="addRowBtn">Add Row</button>
+    
+    <table id="Table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be added here -->
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function() {
+            // Event listener for the button to add a new row
+            $('#addRowBtn').click(function() {
+                // Define a new row with dummy data
+                var newRow = `<tr>
+                                <td>Supriya</td>
+                                <td>18</td>
+                                <td>Kapra</td>
+                              </tr>`;
+                var newRow1 = `<tr>
+                                <td>Haripriya</td>
+                                <td>21</td>
+                                <td>Trichy</td>
+                              </tr>`;              
+                
+                // Append the new row to the table's tbody
+                $('#Table tbody').append(newRow);
+                $('#Table tbody').append(newRow1);
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form Validation</title>
+</head>
+<body>
+
+<form id="registrationForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <br><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br><br>
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required>
+    <br><br>
+
+    <input type="submit" value="Register">
+</form>
+
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Regular expressions for validation
+        const usernameRegex = /^[a-zA-Z0-9]{5,12}$/; // 5 to 12 alphanumeric characters
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email pattern
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[\W_]).{8,20}$/; // 8 to 20 characters with at least one uppercase, one lowercase, one number, and one special character
+
+        // Retrieve input values
+        const username = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const confirmPassword = document.getElementById('confirmPassword').value.trim();
+
+        // Initialize an empty array to store error messages
+        let errors = [];
+
+        // Validate username
+        if (!usernameRegex.test(username)) {
+            errors.push("Username must be 5 to 12 alphanumeric characters.");
+        }
+
+        // Validate email
+        if (!emailRegex.test(email)) {
+            errors.push("Please enter a valid email address.");
+        }
+
+        // Validate password
+        if (!passwordRegex.test(password)) {
+            errors.push("Password must be 8 to 20 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.");
+        }
+
+        // Check if passwords match
+        if (password !== confirmPassword) {
+            errors.push("Passwords do not match.");
+        }
+
+        if (errors.length > 0) {
+            alert(errors.join("\n"));
+        } else {
+            this.submit(); // Submit the form if all validations pass
+        }
+    });
+</script>
+
+</body>
+</html>
+

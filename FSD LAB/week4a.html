@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Hide and Show</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #myElement{
+            width:250px;
+            height:250px;
+            background-color: palevioletred;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+    <body>
+        <div id="myElement">i will blink</div>
+        <script>
+            $(document).ready(function(){
+                setInterval(function(){
+                    $('#myElement').fadeToggle(1000);
+                },2000);
+            });
+        </script>
+    </body>
+</html>
